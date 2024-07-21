@@ -1,3 +1,10 @@
+# Class: CSE 1321 
+# Section: W04 
+# Term: Summer 2024 
+# Instructor: Jerry Mamo 
+# Group 7 
+# Jessica McDonald 
+# Cameron Hernandez 
 
 import pygame 
 import sys 
@@ -42,12 +49,11 @@ bird_surface_rect = bird_surface.get_rect(center=(screen_width / 2, screen_heigh
  
 # Clock 
 clock = pygame.time.Clock() 
- 
- 
+
+#Main Score Render 
 def update_score_surface(point): 
     return medium_font.render("Score: " + str(point), True, pink) 
- 
- 
+
 # Pipes 
 def create_pipes(): 
     rand_int = random.randint(200, 400) 
@@ -61,8 +67,8 @@ def create_pipes():
     top_pipe_rect = top_pipe_surface.get_rect(topright=(screen_width + 100, 100), bottom=pipe_gap_rect.top) 
     return [top_pipe_surface, top_pipe_rect, bottom_pipe_surface, bottom_pipe_rect, pipe_gap_surface, pipe_gap_rect, 
             False] 
- 
- 
+
+#Draw
 def draw_text(text, font, color, surface, x, y, underline_color=None): 
     text_obj = font.render(text, True, color) 
     text_rect = text_obj.get_rect(center=(x, y)) 
@@ -71,7 +77,7 @@ def draw_text(text, font, color, surface, x, y, underline_color=None):
         underline_rect = pygame.Rect(text_rect.left, text_rect.bottom + 2, text_rect.width, 2) 
         pygame.draw.rect(surface, underline_color, underline_rect) 
  
- 
+#Show menu
 def show_menu(title, sub_text): 
     while True: 
         for event in pygame.event.get(): 
@@ -95,7 +101,7 @@ def show_menu(title, sub_text):
         pygame.display.flip() 
         clock.tick(60) 
  
- 
+#Show start screen 
 def show_start_screen(): 
     while True: 
         for event in pygame.event.get(): 
@@ -128,7 +134,7 @@ def show_start_screen():
         pygame.display.flip() 
         clock.tick(60) 
  
- 
+#Main Game  
 def main_game(): 
     global bird_surface_rect, pipes, score_surface 
     bird_surface_rect = bird_surface.get_rect(center=(screen_width / 2, screen_height / 2 + 10)) 
@@ -199,7 +205,6 @@ def main_game():
     pygame.quit() 
     sys.exit() 
  
- 
+#Main Game Init 
 if __name__ == "__main__": 
     main_game()
- 
